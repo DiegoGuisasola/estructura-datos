@@ -33,14 +33,31 @@ public class Ejercicio1 {
         int dia = Integer.parseInt(arregloFecha[0]);
         int mes = Integer.parseInt(arregloFecha[1]);
         int año = Integer.parseInt(arregloFecha[2]);
-        return dia + mes + año;
+
+        int sumaFecha = dia + mes + año;
+
+        return calcularResultadoFinal(sumaFecha);
+    }
+
+    public static int calcularResultadoFinal(int sumaFecha){
+        String sumaFechaString = Integer.toString(sumaFecha); // Para poder utilizar .chartAt()
+
+        // Numero de la suerte = suma cifras del resultado. Usando String:
+        int millar = Character.getNumericValue(sumaFechaString.charAt(0));
+        int centenas = Character.getNumericValue(sumaFechaString.charAt(1));
+        int decenas = Character.getNumericValue(sumaFechaString.charAt(2));
+        int unidades = Character.getNumericValue(sumaFechaString.charAt(3));
+
+        System.out.println("Test>>>> " + millar + "," + centenas + "," + decenas + "," + unidades);
+
+        return millar + centenas + decenas + unidades;
     }
 
     public static int obtenerNumeroSuerteConTryCatch(String fecha){
 
         System.out.println("Con Try Catch");
         // Variable que contiene el resultado
-        int numeroSuerte = 0;
+        int sumaFecha = 0;
         
         // Separar la fecha
         String [] arregloFecha = fecha.split("/",5);
@@ -58,9 +75,9 @@ public class Ejercicio1 {
                 System.out.println("Error catched");
             }
 
-            numeroSuerte += fechaNumeros[i];
+            sumaFecha += fechaNumeros[i];
         }
-        return numeroSuerte;
+        return calcularResultadoFinal(sumaFecha);
     }
 
 
