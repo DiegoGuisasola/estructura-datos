@@ -58,7 +58,7 @@ public class Ejercicio1 {
         System.out.println("Con Try Catch");
         // Variable que contiene el resultado
         int sumaFecha = 0;
-        
+         
         // Separar la fecha
         String [] arregloFecha = fecha.split("/",5);
 
