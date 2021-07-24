@@ -15,21 +15,36 @@ public class Nota {
     }
     Nota(double pEscala5){
         this.escala5 = pEscala5;
-        this.escala100 = (int)pEscala5 * 20;
-        this.cualitativa = this.escala5 >= 2.95 ? "Aprobado" : "Desaprobado";
+        aEscala100();
+        aCualitativa();
     }
     Nota(int pEscala100){
         this.escala100 = pEscala100;
-        this.escala5 = pEscala100 / 20.0;
-        this.cualitativa = this.escala100 >= 59 ? "Aprobado" : "Desaprobado";
+        aEscala5();
+        aCualitativa();
     }
 
     // 3. Metodos
-    // Mostrar info, convertir notas, etc...
     public void mostrarInfo(){
         System.out.println("Escala 5: " + this.getEscala5());
         System.out.println("Escala 100: " + this.getEscala100());
         System.out.println("Cualitativo: " + this.getCualitativa());
+    }
+
+    public void aEscala100(){
+        this.escala100 = (int) Math.round(this.escala5 * 20);
+    }
+
+    public void aEscala5(){
+        this.escala5 = this.escala100 / 20.0;
+    }
+
+    public void aCualitativa(){
+        if (this.escala5 >= 2.95 || this.escala100 >= 60){
+            this.cualitativa = "Aprobado";
+        } else {
+            this.cualitativa = "Desaprobado";
+        }
     }
 
     // 4. Getters
