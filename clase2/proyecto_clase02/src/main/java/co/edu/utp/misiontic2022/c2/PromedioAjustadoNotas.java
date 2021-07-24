@@ -3,7 +3,7 @@ package co.edu.utp.misiontic2022.c2;
 public class PromedioAjustadoNotas {
     // Logica
 
-    public static void nota_quices(String codigo, int nota1, int nota2, int nota3, int nota4, int nota5){
+    public static double nota_quices(int nota1, int nota2, int nota3, int nota4, int nota5){
         // Variable contiene el resultado del computo
         double promedioAjustado = 0;
 
@@ -37,13 +37,17 @@ public class PromedioAjustadoNotas {
         // 4.
         promedioAjustado /= 20;
 
-        System.out.println(promedioAjustado);
+        return promedioAjustado;
 
     }
 
     // Seccion principal
+    public static void mostrarResultado(String codigo, double promedioAjustado){
+        System.out.println("El estudiante con codigo " + codigo + " tiene un promedio ajustado de " + promedioAjustado);
+    }
 
     public static void main(String[] args) {
-        nota_quices("12345", 40, 50, 39, 76, 96);
+        String codigo = "618822";
+        mostrarResultado(codigo, nota_quices(40, 50, 39, 76, 96));
     }
 }
