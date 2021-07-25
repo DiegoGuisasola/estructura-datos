@@ -6,16 +6,18 @@ package co.edu.utp.misiontic2022.c2;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        // Nota notaVacia = new Nota();
-        // notaVacia.mostrarInfo();
+    public static void main( String[] args ){
+        // Interactuar con la materia
+        Materia fisica = new Materia(40, 50, 39, 76, 96);
 
-        Nota notaEscala5 = new Nota(2.96);
-        notaEscala5.mostrarInfo();
-
-        Nota notaEscala100 = new Nota(79);
-        notaEscala100.mostrarInfo();
+        // Utilizar el comportamiento de la materia
+        fisica.calcularMejorNota();
+        fisica.calcularPeorNota();
+        fisica.calcularPromedio();
+        fisica.calcularPromedioAjustado();
+        
+        // Ver información de la materia
+        fisica.mostrarMateria();
     }
 }
 
@@ -34,7 +36,8 @@ Sustantivos:
 
 Tipos de relacion:
 Agregación (o--): 
-Composición (*--): Relación muy fuerte, si no existe uno, no existe el otro.
+Composición (*--): Relación muy fuerte, si no existe uno, no existe el otro. Por ejemplo: La materia construye a las Notas.
+    Solo existe si la principal se crea. El rombo oscuro va pegado a la clase principal.
 Asociación (): 
     Directivo "1" -- "*" Empleado: UN directivo tiene MUCHOS empleados asociados.
 Dependencia (<..):
